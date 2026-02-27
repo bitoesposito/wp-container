@@ -1,4 +1,4 @@
-## export.sh
+## scripts/export.sh
 
 Script to create a full backup of the WordPress installation running via Docker Compose.
 
@@ -26,7 +26,7 @@ docker compose up -d
 ### How to run it
 
 ```bash
-./export.sh
+./scripts/export.sh
 ```
 
 The script:

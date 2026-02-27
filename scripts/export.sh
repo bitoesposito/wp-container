@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR"
 
 BACKUP_BASE="backup"
 TIMESTAMP="$(date +%Y-%m-%d_%H-%M-%S)"
@@ -62,4 +62,5 @@ echo "=============================================="
 echo "  Export completed: ${BACKUP_DIR}"
 echo "=============================================="
 echo ""
-echo "To restore: ./restore.sh"
+echo "To restore: ./scripts/restore.sh"
+

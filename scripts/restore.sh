@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR"
 BACKUP_BASE="backup"
 
 echo "=============================================="
@@ -11,7 +11,7 @@ echo "=============================================="
 echo ""
 
 if [[ ! -d "$BACKUP_BASE" ]]; then
-	echo "Directory ${BACKUP_BASE}/ not found. Run export.sh first."
+	echo "Directory ${BACKUP_BASE}/ not found. Run scripts/export.sh first."
 	exit 1
 fi
 
@@ -115,7 +115,7 @@ docker compose stop wordpress 2>/dev/null || true
 
 if [[ -f "${RESTORE_DIR}/wp-content.tar.gz" ]]; then
 	echo "[3/5] Restoring wp-content..."
-	BACKUP_ABS="${SCRIPT_DIR}/${RESTORE_DIR}"
+	BACKUP_ABS="${ROOT_DIR}/${RESTORE_DIR}"
 	docker compose run --rm \
 		-v "${BACKUP_ABS}:/backup:ro" \
 		wordpress \
@@ -157,3 +157,4 @@ echo "=============================================="
 echo ""
 echo "Site: ${FINAL_URL}"
 echo ""
+

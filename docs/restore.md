@@ -1,4 +1,4 @@
-## restore.sh
+## scripts/restore.sh
 
 Interactive script to restore a backup created with `export.sh` on a WordPress/MariaDB stack started via Docker Compose.
 
@@ -77,7 +77,7 @@ Interactive script to restore a backup created with `export.sh` on a WordPress/M
 To start the restore:
 
 ```bash
-./restore.sh
+./scripts/restore.sh
 ```
 
 Follow the on-screen instructions to:
